@@ -1,0 +1,1560 @@
+/* =========================================
+   HOME PAGE — COSMIC PORTFOLIO
+========================================= */
+
+.home-page {
+    --space-bg: #070611;
+    --purple: #ad67ff;
+    --blue: #4cd9ff;
+    --pink: #ff70dc;
+
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    overflow: hidden;
+
+    color: #f8f5ff;
+    background: var(--space-bg);
+    font-family: inherit;
+}
+
+.home-page *,
+.home-page *::before,
+.home-page *::after {
+    box-sizing: border-box;
+}
+
+.home-page button {
+    font-family: inherit;
+}
+
+
+
+
+
+
+@keyframes star-drift {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(120px, 80px, 0);
+    }
+}
+
+.meteor-a {
+    top: 18%;
+    right: 10%;
+}
+
+.meteor-b {
+    top: 65%;
+    right: 70%;
+    animation-delay: 3.5s;
+}
+
+@keyframes meteor-flight {
+
+    0%,
+    12% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(-35deg);
+    }
+
+    18% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+        transform: translate(-230px, 150px) rotate(-35deg);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+
+.home-main-layout {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.8fr);
+    align-items: center;
+    gap: clamp(35px, 7vw, 110px);
+
+    width: min(1200px, calc(100% - 64px));
+    min-height: 100vh;
+    margin-inline: auto;
+    padding-block: 100px 90px;
+
+    transition: filter 0.5s ease, opacity 0.5s ease;
+}
+
+.home-copy {
+    min-width: 0;
+    text-align: right;
+}
+
+.hero-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+
+    color: #cbb9ff;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.status-dot,
+.floating-label-dot {
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+    border-radius: 50%;
+    background: #9effdb;
+    box-shadow: 0 0 12px #5bffcf;
+}
+
+.hero-intro {
+    margin: 0 0 8px;
+    color: #c8c1e2;
+    font-size: clamp(15px, 2vw, 19px);
+}
+
+.hero-name {
+    width: fit-content;
+    margin: 0;
+    direction: ltr;
+
+    font-size: clamp(72px, 10vw, 132px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -5px;
+
+    color: transparent;
+    background: linear-gradient(110deg, #fff 5%, #d4a0ff 35%, #8c78ff 70%, #54ddff);
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    filter: drop-shadow(0 0 24px #9355ff35);
+    transform: translate(var(--mouse-x, 0px), var(--mouse-y, 0px));
+    transition: transform 0.2s ease;
+}
+
+.hero-name-dot {
+    color: #63dfff;
+}
+
+.hero-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 180px;
+    margin-block: 25px;
+    color: #c99cff;
+}
+
+.hero-divider span:not(.divider-star) {
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(90deg, transparent, #9c69ff);
+}
+
+.divider-star {
+    text-shadow: 0 0 12px #c99cff;
+}
+
+.hero-intro-animation {
+    min-height: 45px;
+    color: #e3d9ff;
+    font-size: clamp(15px, 1.8vw, 19px);
+    line-height: 1.9;
+}
+
+.hero-intro-animation p {
+    margin: 0;
+    animation: intro-appear 0.6s ease both;
+}
+
+@keyframes intro-appear {
+    from {
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateY(7px);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+.home-description {
+    max-width: 570px;
+    margin: 18px 0 32px;
+    color: #a9a4c4;
+    font-size: 14px;
+    line-height: 2.2;
+}
+
+/* =========================================
+   MAIN SATURN BUTTON
+========================================= */
+
+.cosmic-cta {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+
+    width: min(100%, 590px);
+    min-height: 108px;
+    padding: 13px 15px 13px 24px;
+
+    color: #fff;
+    text-align: right;
+
+    border: 1px solid transparent;
+    border-radius: 100px;
+    cursor: pointer;
+
+    background:
+        linear-gradient(110deg, #110a28, #141034 55%, #090e29) padding-box,
+        linear-gradient(105deg, #ff66ec, #9a53ff 35%, #46dfff 70%, #bd61ff) border-box;
+
+    box-shadow:
+        0 0 20px #9c4dff35,
+        inset 0 0 28px #8755ff10;
+
+    transition: box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.cosmic-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(ellipse at 15% 50%, #cf4cff35, transparent 38%),
+        radial-gradient(ellipse at 85% 50%, #397dff25, transparent 38%);
+}
+
+.cosmic-cta:hover:not(:disabled) {
+    box-shadow:
+        0 0 28px #b85aff85,
+        0 0 65px #4a79ff40,
+        inset 0 0 30px #a84bff25;
+    filter: brightness(1.13);
+}
+
+.cosmic-cta:focus-visible,
+.promo-action:focus-visible,
+.promo-dismiss:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
+
+.cosmic-cta:disabled {
+    cursor: wait;
+}
+
+/* CSS Saturn illustration */
+.saturn-art {
+    position: relative;
+    display: grid;
+    place-items: center;
+    flex: 0 0 78px;
+    width: 78px;
+    height: 78px;
+}
+
+.saturn-planet {
+    position: relative;
+    z-index: 2;
+    width: 51px;
+    height: 51px;
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle at 28% 23%, #fff4ff 0%, #e4bdff 7%, transparent 20%),
+        repeating-linear-gradient(165deg,
+            #dcb4ff 0 5px,
+            #a276e8 6px 10px,
+            #6042ba 11px 15px,
+            #352263 16px 20px);
+
+    box-shadow:
+        inset -10px -7px 13px #09051e9c,
+        0 0 22px #ba72ff9c;
+}
+
+.saturn-ring {
+    position: absolute;
+    width: 83px;
+    height: 28px;
+    border: 3px solid #e2b0ff;
+    border-radius: 50%;
+    transform: rotate(-25deg);
+    box-shadow: 0 0 10px #a971ff85;
+}
+
+.saturn-ring-back {
+    z-index: 1;
+    border-bottom-color: transparent;
+}
+
+.saturn-ring-front {
+    z-index: 3;
+    border-top-color: transparent;
+    border-left-color: #68dfff;
+    border-right-color: #ff94ef;
+}
+
+.saturn-spark {
+    position: absolute;
+    top: 0;
+    right: 1px;
+    z-index: 4;
+    color: #fff;
+    font-size: 14px;
+    text-shadow: 0 0 10px #fff, 0 0 20px #9c72ff;
+}
+
+.cosmic-cta-text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.cosmic-cta-text small {
+    color: #bba3ff;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.cosmic-cta-text strong {
+    color: #fff;
+    font-size: clamp(13px, 1.5vw, 18px);
+    line-height: 1.8;
+    text-shadow: 0 0 14px #cda7ff50;
+}
+
+.cosmic-cta-arrow {
+    display: grid;
+    place-items: center;
+    flex: 0 0 64px;
+    width: 64px;
+    height: 64px;
+
+    border: 1px solid #d1a9ff8a;
+    border-radius: 50%;
+    background: linear-gradient(140deg, #9a53ff65, #1b1746);
+
+    color: white;
+    font-size: 34px;
+    line-height: 1;
+
+    box-shadow: 0 0 18px #a35dff40;
+    transition: box-shadow 0.3s ease;
+}
+
+.cosmic-cta:hover:not(:disabled) .cosmic-cta-arrow {
+    box-shadow: 0 0 28px #bd74ff9c;
+}
+
+.home-trust-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 25px;
+
+    color: #8580a9;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.trust-star {
+    color: #b88bff;
+}
+
+/* =========================================
+   PROFILE IMAGE
+========================================= */
+
+.home-visual {
+    position: relative;
+    width: 100%;
+    max-width: 430px;
+    justify-self: center;
+}
+
+.visual-glow {
+    position: absolute;
+    inset: 15%;
+    border-radius: 50%;
+    background: #753bff35;
+    filter: blur(70px);
+}
+
+.visual-image-frame {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+
+    border: 1px solid #b58cff50;
+    border-radius: 48% 48% 24px 24px;
+
+    background: #100c25;
+    box-shadow: 0 0 35px #753cff20;
+}
+
+.developer-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-vignette {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, #0907169c, transparent 48%, #17102a22);
+    pointer-events: none;
+}
+
+.visual-floating-label {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 16px;
+    border: 1px solid #bda0ff35;
+    border-radius: 12px;
+
+    background: #100d26d9;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 0 20px #7d4cff15;
+
+    color: #e7dcff;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.visual-label-top {
+    top: 12%;
+    right: -25px;
+}
+
+.visual-label-bottom {
+    bottom: 8%;
+    left: -35px;
+}
+
+.floating-label-code {
+    color: #7fe7ff;
+    font-size: 22px;
+}
+
+.visual-label-bottom strong,
+.visual-label-bottom small {
+    display: block;
+}
+
+.visual-label-bottom small {
+    margin-top: 4px;
+    color: #a9a0ca;
+    font-size: 9px;
+}
+
+/* =========================================
+   PROFESSIONAL PROMOTIONAL BANNER
+========================================= */
+
+.promo-banner {
+    --promo-main: #b66bff;
+    --promo-second: #6c57ff;
+    --promo-glow: #9c42ff;
+
+    position: fixed;
+    z-index: 10;
+    left: 24px;
+    bottom: 25px;
+
+    display: grid;
+    grid-template-columns: 86px minmax(0, 1fr);
+    align-items: center;
+    gap: 14px;
+
+    width: min(375px, calc(100vw - 32px));
+    min-height: 155px;
+    padding: 20px 17px 16px;
+
+    overflow: hidden;
+    isolation: isolate;
+
+    border: 1px solid color-mix(in srgb, var(--promo-main) 80%, white 20%);
+    border-radius: 22px;
+
+    background:
+        radial-gradient(ellipse at 12% 50%, color-mix(in srgb, var(--promo-glow) 35%, transparent), transparent 52%),
+        linear-gradient(125deg, #100b25f5, #0b1027f5 65%, #160c2bf5);
+
+    box-shadow:
+        0 0 20px color-mix(in srgb, var(--promo-glow) 28%, transparent),
+        inset 0 0 25px color-mix(in srgb, var(--promo-main) 8%, transparent);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(-35px) scale(0.96);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s cubic-bezier(.2, .8, .2, 1),
+        visibility 0.5s;
+}
+
+.promo-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0) scale(1);
+    animation: promo-attention 3.5s ease-in-out infinite;
+}
+
+.promo-purple {
+    --promo-main: #d18aff;
+    --promo-second: #7d43ff;
+    --promo-glow: #a12cff;
+}
+
+.promo-blue {
+    --promo-main: #62e4ff;
+    --promo-second: #396dff;
+    --promo-glow: #168bff;
+}
+
+.promo-pink {
+    --promo-main: #ff8ce7;
+    --promo-second: #b449ff;
+    --promo-glow: #ff3cce;
+}
+
+@keyframes promo-attention {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 18px color-mix(in srgb, var(--promo-glow) 24%, transparent),
+            inset 0 0 25px color-mix(in srgb, var(--promo-main) 7%, transparent);
+        filter: brightness(0.96);
+    }
+
+    50% {
+        box-shadow:
+            0 0 30px color-mix(in srgb, var(--promo-glow) 48%, transparent),
+            0 0 55px color-mix(in srgb, var(--promo-second) 20%, transparent),
+            inset 0 0 30px color-mix(in srgb, var(--promo-main) 15%, transparent);
+        filter: brightness(1.12);
+    }
+}
+
+.promo-banner::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -50%;
+
+    background: linear-gradient(115deg,
+            transparent 42%,
+            color-mix(in srgb, var(--promo-main) 18%, transparent) 50%,
+            transparent 58%);
+
+    transform: translateX(-60%);
+    animation: promo-sweep 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes promo-sweep {
+
+    0%,
+    25% {
+        transform: translateX(-60%);
+    }
+
+    75%,
+    100% {
+        transform: translateX(60%);
+    }
+}
+
+.promo-stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    color: white;
+}
+
+.promo-stars span {
+    position: absolute;
+    animation: promo-twinkle 2s ease-in-out infinite alternate;
+    text-shadow: 0 0 8px var(--promo-main);
+}
+
+.promo-stars span:nth-child(1) {
+    top: 14px;
+    left: 25px;
+}
+
+.promo-stars span:nth-child(2) {
+    top: 42px;
+    right: 16px;
+    animation-delay: .4s;
+}
+
+.promo-stars span:nth-child(3) {
+    bottom: 42px;
+    left: 15px;
+    animation-delay: .8s;
+}
+
+.promo-stars span:nth-child(4) {
+    bottom: 17px;
+    right: 60px;
+    animation-delay: .2s;
+}
+
+.promo-stars span:nth-child(5) {
+    top: 16px;
+    right: 60px;
+    animation-delay: 1s;
+}
+
+@keyframes promo-twinkle {
+    from {
+        opacity: .25;
+        transform: scale(.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.promo-planet {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 80px;
+    height: 80px;
+}
+
+.promo-planet-core {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 61px;
+    height: 61px;
+
+    border-radius: 50%;
+    color: white;
+    font-size: 25px;
+
+    background:
+        radial-gradient(circle at 28% 25%, white, var(--promo-main) 15%, var(--promo-second) 48%, #0d0b28 85%);
+
+    box-shadow:
+        0 0 20px color-mix(in srgb, var(--promo-main) 70%, transparent),
+        inset -7px -7px 12px #050416a6;
+}
+
+.promo-planet-ring {
+    position: absolute;
+    z-index: 3;
+    width: 88px;
+    height: 29px;
+    border: 2px solid var(--promo-main);
+    border-radius: 50%;
+    transform: rotate(-28deg);
+    box-shadow: 0 0 10px var(--promo-glow);
+}
+
+.promo-copy {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    min-width: 0;
+}
+
+.promo-eyebrow {
+    color: var(--promo-main);
+    font-size: 8px;
+    letter-spacing: 1.2px;
+    direction: ltr;
+}
+
+.promo-copy strong {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.promo-copy small {
+    color: #c4bddf;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.promo-action {
+    position: relative;
+    z-index: 2;
+    grid-column: 1 / -1;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    width: 100%;
+    padding: 9px 12px;
+
+    border: 1px solid color-mix(in srgb, var(--promo-main) 55%, transparent);
+    border-radius: 10px;
+
+    background: color-mix(in srgb, var(--promo-second) 18%, #0b0a20);
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.promo-action:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--promo-second) 38%, #0b0a20);
+    box-shadow: 0 0 15px color-mix(in srgb, var(--promo-glow) 30%, transparent);
+}
+
+.promo-dismiss {
+    position: absolute;
+    z-index: 4;
+    top: 5px;
+    right: 7px;
+
+    width: 25px;
+    height: 25px;
+
+    border: 0;
+    border-radius: 50%;
+    background: #ffffff12;
+    color: #fff;
+    font-size: 19px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.promo-meteor {
+    position: absolute;
+    top: 30%;
+    left: -50px;
+    width: 65px;
+    height: 2px;
+
+    opacity: 0;
+    background: linear-gradient(90deg, transparent, white, var(--promo-main));
+    box-shadow: 0 0 10px var(--promo-main);
+    transform: rotate(-28deg);
+
+    animation: promo-meteor-flight 4s ease-in infinite;
+    pointer-events: none;
+}
+
+@keyframes promo-meteor-flight {
+
+    0%,
+    15% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(-28deg);
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    65%,
+    100% {
+        opacity: 0;
+        transform: translate(450px, 180px) rotate(-28deg);
+    }
+}
+
+.promo-border-glow {
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--promo-main);
+    border-radius: inherit;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+/* =========================================
+   PAGE TRANSITION
+========================================= */
+
+.home-page.is-leaving .home-main-layout {
+    filter: blur(12px);
+    opacity: 0.6;
+}
+
+
+
+
+
+
+.warp-overlay {
+    position: absolute;
+    z-index: 20;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+
+    background: #070611;
+    backdrop-filter: blur(0);
+
+    transition: opacity 0.5s ease, backdrop-filter 0.5s ease;
+}
+
+.home-page.is-leaving .warp-overlay {
+    opacity: 0.28;
+    backdrop-filter: blur(5px);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+    .home-main-layout {
+        grid-template-columns: minmax(0, 1fr) minmax(230px, 0.7fr);
+        gap: 35px;
+        width: min(100% - 40px, 760px);
+    }
+
+    .hero-name {
+        font-size: clamp(64px, 10vw, 94px);
+    }
+
+    .cosmic-cta {
+        gap: 12px;
+        padding-inline: 15px;
+    }
+
+    .saturn-art {
+        flex-basis: 64px;
+        width: 64px;
+        height: 64px;
+    }
+
+    .saturn-planet {
+        width: 43px;
+        height: 43px;
+    }
+
+    .saturn-ring {
+        width: 70px;
+        height: 25px;
+    }
+
+    .cosmic-cta-arrow {
+        flex-basis: 53px;
+        width: 53px;
+        height: 53px;
+    }
+}
+
+@media (max-width: 650px) {
+    .home-main-layout {
+        grid-template-columns: 1fr;
+        gap: 42px;
+
+        width: min(100% - 36px, 500px);
+        min-height: auto;
+        padding-block: 90px 210px;
+    }
+
+    .home-copy {
+        text-align: center;
+    }
+
+    .hero-status {
+        margin-bottom: 20px;
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .hero-name {
+        margin-inline: auto;
+        font-size: clamp(70px, 19vw, 105px);
+        letter-spacing: -4px;
+    }
+
+    .hero-divider {
+        margin-inline: auto;
+    }
+
+    .hero-intro-animation {
+        min-height: 58px;
+        font-size: 14px;
+    }
+
+    .home-description {
+        margin-block: 15px 25px;
+        font-size: 13px;
+    }
+
+    .cosmic-cta {
+        width: 100%;
+        min-height: 84px;
+        gap: 10px;
+        padding: 9px 10px;
+    }
+
+    .saturn-art {
+        flex-basis: 54px;
+        width: 54px;
+        height: 54px;
+    }
+
+    .saturn-planet {
+        width: 37px;
+        height: 37px;
+    }
+
+    .saturn-ring {
+        width: 61px;
+        height: 21px;
+        border-width: 2px;
+    }
+
+    .cosmic-cta-text small {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    .cosmic-cta-text strong {
+        font-size: 12px;
+    }
+
+    .cosmic-cta-arrow {
+        flex-basis: 45px;
+        width: 45px;
+        height: 45px;
+        font-size: 26px;
+    }
+
+    .home-trust-line {
+        justify-content: center;
+        font-size: 9px;
+    }
+
+    .home-visual {
+        width: min(80%, 330px);
+    }
+
+    .visual-label-top {
+        right: -16px;
+    }
+
+    .visual-label-bottom {
+        left: -18px;
+    }
+
+    .promo-banner {
+        left: 50%;
+        bottom: 15px;
+
+        width: min(370px, calc(100vw - 28px));
+        transform: translate(-50%, 30px) scale(.97);
+    }
+
+    .promo-visible {
+        transform: translate(-50%, 0) scale(1);
+    }
+
+    @keyframes promo-attention {
+
+        0%,
+        100% {
+            box-shadow: 0 0 18px color-mix(in srgb, var(--promo-glow) 24%, transparent);
+            filter: brightness(.97);
+        }
+
+        50% {
+            box-shadow: 0 0 32px color-mix(in srgb, var(--promo-glow) 45%, transparent);
+            filter: brightness(1.1);
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .home-page *,
+    .home-page *::before,
+    .home-page *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.home-page .bg {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+}
+
+.home-page .star-field {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  perspective: 600px;
+  pointer-events: none;
+}
+
+.home-page .home-main-layout {
+  position: relative;
+  z-index: 1;
+}
+
+.home-page .promo-banner {
+  z-index: 10;
+}
+
+/* =========================================
+   COSMIC BACKGROUND
+========================================= */
+
+.home-page {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #03040d;
+}
+
+/* Background image */
+.home-page .bg {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+
+  background:
+    url("https://i.ibb.co/87GbbFP/2799006.jpg")
+    center / cover no-repeat;
+
+  pointer-events: none;
+}
+
+.home-page .bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 5, 15, 0.48),
+      rgba(3, 5, 15, 0.15) 50%,
+      rgba(3, 5, 15, 0.38)
+    ),
+    rgba(2, 3, 12, 0.24);
+}
+
+/* =========================================
+   THREE-LAYER STAR FIELD
+========================================= */
+
+.home-page .star-field {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+
+  overflow: hidden;
+  perspective: 600px;
+  -webkit-perspective: 600px;
+
+  pointer-events: none;
+}
+
+.home-page .star-field .layer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+  background: transparent;
+
+  transform-style: preserve-3d;
+  will-change: transform;
+
+  box-shadow:
+    -390px -220px #fff,
+    -230px -360px #c9d5ff,
+    120px -280px #fff,
+    330px -190px #d7d0ff,
+    410px 80px #fff,
+    210px 290px #c9d5ff,
+    -180px 240px #fff,
+    -420px 120px #c9d5ff,
+    60px 140px #fff,
+    300px 350px #fff,
+    -70px -100px #d7d0ff,
+    460px -330px #fff,
+    -500px -40px #fff,
+    10px 390px #c9d5ff,
+    -320px 370px #fff;
+}
+
+/* Far stars */
+.home-page .star-field .layer:nth-child(1) {
+  opacity: 0.42;
+  animation: starsFlyFar 18s linear infinite;
+}
+
+/* Middle stars */
+.home-page .star-field .layer:nth-child(2) {
+  width: 2px;
+  height: 2px;
+  opacity: 0.56;
+
+  box-shadow:
+    -300px -180px #fff,
+    -120px -310px #c6d5ff,
+    190px -220px #fff,
+    290px -80px #e2d9ff,
+    350px 190px #fff,
+    140px 250px #c6d5ff,
+    -240px 170px #fff,
+    -360px 50px #d7dfff,
+    30px 80px #fff,
+    250px 330px #fff,
+    -30px -210px #d7dfff,
+    400px -280px #fff;
+
+  animation: starsFlyMiddle 12s linear infinite;
+}
+
+/* Near stars */
+.home-page .star-field .layer:nth-child(3) {
+  width: 2px;
+  height: 2px;
+  opacity: 0.7;
+
+  box-shadow:
+    -200px -100px #fff,
+    80px -170px #d8dfff,
+    250px -20px #fff,
+    180px 200px #fff,
+    -160px 130px #d8dfff,
+    -300px -250px #fff,
+    320px 290px #fff;
+
+  animation: starsFlyNear 8s linear infinite;
+}
+
+/* Star movement */
+@keyframes starsFlyFar {
+  from {
+    transform: translateZ(-1000px);
+  }
+
+  to {
+    transform: translateZ(0);
+  }
+}
+
+@keyframes starsFlyMiddle {
+  from {
+    transform: translateZ(-1400px);
+  }
+
+  to {
+    transform: translateZ(-300px);
+  }
+}
+
+@keyframes starsFlyNear {
+  from {
+    transform: translateZ(-1700px);
+  }
+
+  to {
+    transform: translateZ(-500px);
+  }
+}
+
+/* =========================================
+   NATURAL METEORS
+========================================= */
+
+.home-page .natural-meteor {
+  position: absolute;
+  top: -15%;
+  left: 65%;
+
+  width: 2px;
+  height: 105px;
+
+  border-radius: 50%;
+  opacity: 0;
+
+  transform: rotate(42deg);
+  transform-origin: top center;
+
+  background: linear-gradient(
+    to bottom,
+    #fff 0%,
+    rgba(220, 231, 255, 0.75) 8%,
+    rgba(164, 189, 255, 0.35) 35%,
+    transparent 100%
+  );
+
+  filter: drop-shadow(
+    0 0 3px rgba(202, 218, 255, 0.65)
+  );
+
+  animation: naturalMeteorFlight 11s ease-in infinite;
+}
+
+.home-page .natural-meteor::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1px;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+  background: #fff;
+
+  box-shadow:
+    0 0 7px 2px rgba(220, 230, 255, 0.7);
+}
+
+.home-page .meteor-a {
+  left: 72%;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+.home-page .meteor-b {
+  left: 38%;
+  height: 80px;
+  animation-delay: 8s;
+  animation-duration: 15s;
+}
+
+/* Meteor flight */
+@keyframes naturalMeteorFlight {
+  0%,
+  68%,
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(42deg);
+  }
+
+  70% {
+    opacity: 0.8;
+  }
+
+  74% {
+    opacity: 0.65;
+    transform: translate3d(-180px, 230px, 0) rotate(42deg);
+  }
+
+  76% {
+    opacity: 0;
+    transform: translate3d(-220px, 280px, 0) rotate(42deg);
+  }
+}
+
+/* =========================================
+   HERO STATUS
+========================================= */
+
+.home-page .hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 25px;
+  padding: 9px 13px;
+
+  border: 1px solid rgba(190, 170, 255, 0.22);
+  border-radius: 50px;
+
+  background: rgba(10, 12, 30, 0.46);
+  color: #d0c4ff;
+
+  font-size: 9px;
+  letter-spacing: 1.4px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.home-page .status-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+  background: #b8a0ff;
+
+  box-shadow: 0 0 10px rgba(184, 160, 255, 0.8);
+}
+
+/* =========================================
+   HERO TITLE
+========================================= */
+
+.home-page .hero-intro {
+  margin: 0;
+
+  color: #e5defb;
+  font-size: clamp(16px, 1.5vw, 21px);
+  line-height: 1.9;
+}
+
+.home-page .hero-name {
+  display: block;
+
+  width: fit-content;
+  max-width: 100%;
+
+  margin: 3px 0 0;
+
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: left;
+  white-space: nowrap;
+
+  font-size: clamp(78px, 9vw, 116px);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: 1px;
+
+  background: linear-gradient(
+    115deg,
+    #fff 10%,
+    #ded0ff 42%,
+    #a997ff 75%,
+    #eee5ff 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  filter: drop-shadow(
+    0 8px 28px rgba(138, 106, 255, 0.22)
+  );
+
+  transform: translate3d(
+    var(--mouse-x, 0px),
+    var(--mouse-y, 0px),
+    0
+  );
+
+  transition: transform 0.2s ease-out;
+}
+
+.home-page .hero-name-dot {
+  color: #b7a0ff;
+  -webkit-text-fill-color: #b7a0ff;
+}
+
+/* Decorative divider */
+.home-page .hero-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  width: min(220px, 65%);
+  margin: 18px 0;
+}
+
+.home-page .hero-divider > span:not(.divider-star) {
+  height: 1px;
+  flex: 1;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(186, 161, 255, 0.8)
+  );
+}
+
+.home-page .divider-star {
+  color: #d5c4ff;
+  font-size: 12px;
+}
+
+/* =========================================
+   ROTATING INTRO TEXT
+========================================= */
+
+.home-page .hero-intro-animation {
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+}
+
+.home-page .hero-intro-animation p {
+  margin: 0;
+
+  color: #d0cbe2;
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 2;
+
+  animation: introTextAppear 0.5s ease both;
+}
+
+@keyframes introTextAppear {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+/* Description */
+.home-page .home-description {
+  max-width: 490px;
+  margin: 12px 0 0;
+
+  color: #b4b0cb;
+  font-size: 13px;
+  line-height: 2.15;
+}
+
+/* =========================================
+   FOOTER LINE UNDER CTA
+========================================= */
+
+.home-page .home-trust-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 28px;
+
+  color: #a09ab9;
+  font-size: 9px;
+  letter-spacing: 1.8px;
+}
+
+.home-page .trust-star {
+  color: #c1aaff;
+}
+
+/* =========================================
+   PAGE TRANSITION
+========================================= */
+
+.home-page .home-main-layout {
+  position: relative;
+  z-index: 1;
+
+  transition:
+    filter 0.5s ease,
+    opacity 0.5s ease;
+}
+
+.home-page .bg,
+.home-page .star-field {
+  transition: filter 0.5s ease;
+}
+
+.home-page.is-leaving .home-main-layout {
+  filter: blur(12px);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.home-page.is-leaving .bg,
+.home-page.is-leaving .star-field {
+  filter: blur(5px);
+}
+
+.home-page.is-leaving .promo-banner {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+  .home-page .hero-name {
+    font-size: clamp(68px, 17vw, 100px);
+    letter-spacing: 0;
+  }
+
+  .home-page .hero-status {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .home-page .hero-intro-animation {
+    min-height: 60px;
+  }
+
+  .home-page .home-description {
+    font-size: 12px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .home-page .star-field .layer,
+  .home-page .natural-meteor,
+  .home-page .hero-intro-animation p {
+    animation: none !important;
+  }
+}
