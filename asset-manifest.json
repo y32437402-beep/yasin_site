@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/yasin_site/static/css/main.47dccfc2.css",
+    "main.js": "/yasin_site/static/js/main.c8559043.js",
+    "static/media/png.jpg": "/yasin_site/static/media/png.7b4343c28f02d8d44fc0.jpg",
+    "static/media/vazirmatn-arabic-wght-normal.woff2": "/yasin_site/static/media/vazirmatn-arabic-wght-normal.7a57e7901909a9723c6b.woff2",
+    "static/media/vazirmatn-latin-wght-normal.woff2": "/yasin_site/static/media/vazirmatn-latin-wght-normal.f401cdc4292a09355c46.woff2",
+    "static/media/space-grotesk-latin-wght-normal.woff2": "/yasin_site/static/media/space-grotesk-latin-wght-normal.689e6485b7e1094b1b7d.woff2",
+    "static/media/vazirmatn-latin-ext-wght-normal.woff2": "/yasin_site/static/media/vazirmatn-latin-ext-wght-normal.57773667766792cf886f.woff2",
+    "static/media/space-grotesk-latin-ext-wght-normal.woff2": "/yasin_site/static/media/space-grotesk-latin-ext-wght-normal.d12c134e87766c9a537e.woff2",
+    "static/media/space-grotesk-vietnamese-wght-normal.woff2": "/yasin_site/static/media/space-grotesk-vietnamese-wght-normal.07eb1f298ecbaaf50b67.woff2",
+    "index.html": "/yasin_site/index.html",
+    "main.47dccfc2.css.map": "/yasin_site/static/css/main.47dccfc2.css.map",
+    "main.c8559043.js.map": "/yasin_site/static/js/main.c8559043.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.47dccfc2.css",
+    "static/js/main.c8559043.js"
+  ]
+}
