@@ -1,7 +1,5 @@
 {
   "name": "me",
-  "homepage": "https://y32437402-beep.github.io/yasin_site",
-  
   "version": "0.1.0",
   "private": true,
   "dependencies": {
