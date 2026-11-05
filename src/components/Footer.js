@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 function Footer() {
   const [notice, setNotice] = useState("");
-  const navigate = useNavigate();
 
   // آدرس شبکه‌های اجتماعی را بعداً اینجا وارد کن
   const socials = {
