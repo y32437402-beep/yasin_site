@@ -23,14 +23,6 @@ function Footer() {
     setNotice("");
   };
 
-  const goToProjects = () => {
-    navigate("/projects");
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   const goToTop = () => {
     window.scrollTo({
       top: 0,
@@ -56,7 +48,7 @@ function Footer() {
           </Link>
 
           <p className="footer-description">
-  برای ارتباط با من به صفحه ارتباط با من بروید
+            برای ارتباط با من به صفحه ارتباط با من بروید
           </p>
 
           {/* نام دامنه را بعد از خرید دامنه جایگزین کن */}
@@ -73,7 +65,6 @@ function Footer() {
             بازگشت به خانه
           </Link>
 
-
           <button
             type="button"
             className="footer-link footer-link-button"
@@ -87,7 +78,6 @@ function Footer() {
         {/* شبکه‌های اجتماعی */}
         <div className="footer-social">
           <h3>من را پیدا کن</h3>
-
 
           <div className="social-login-icons">
             {/* Instagram */}
@@ -133,11 +123,12 @@ function Footer() {
               className="socialcontainer rubika"
               href={socials.rubika || "#rubika"}
               aria-label="Rubika"
+              target={socials.rubika ? "_blank" : undefined}
+              rel={socials.rubika ? "noreferrer" : undefined}
               onClick={(event) =>
                 handleSocialClick(event, socials.rubika)
               }
             >
-              
               <div className="icon social-icon-2-2 rubika-letter">
                 R
               </div>
@@ -158,7 +149,7 @@ function Footer() {
       {/* خط پایانی */}
       <div className="footer-bottom">
         <p>
-        ساخته شده توسط<span>=</span> یاسین
+          ساخته شده توسط <span className="footer-heart">♥</span> یاسین
         </p>
 
         <button

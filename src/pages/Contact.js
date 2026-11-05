@@ -1,10 +1,7 @@
-
 import React, { useEffect, useState } from "react";
 import "./Concat.css";
 
-
 const contacts = [
-    ,
     {
         id: "telegram",
         title: "Telegram",
@@ -21,11 +18,9 @@ const contacts = [
         subtitle: "no activity",
         description: "درحال حاظر در اینستا فعالیت ندارم",
         value: "no activity",
-
         action: "مشاهده صفحه",
-        hoverText: "دنبال کن",
-    }
-    ,
+        hoverText: " فعالیت ندارم ",
+    },
     {
         id: "rubika",
         title: "Rubika",
@@ -55,7 +50,7 @@ const contacts = [
         url: "yasinchambari01@gmail.com",
         action: "ارسال ایمیل",
         hoverText: "ایمیل بفرست",
-    },
+    }
 ];
 
 function ContactIcon({ type }) {
@@ -180,15 +175,12 @@ function Contact() {
             <div className="contact-white-glow contact-glow-one" />
             <div className="contact-white-glow contact-glow-two" />
 
-
-
             <section className="contact-section">
                 <div className="contact-section-heading contact-reveal">
                     <span className="contact-section-kicker">
                         STAY CONNECTED
                     </span>
                     <h2>
-                        
                         <span>🌌</span>
                     </h2>
                     <p>راه ارتباطی موردنظرت رو انتخاب کن.</p>
@@ -214,7 +206,7 @@ function Contact() {
                                         ? "noopener noreferrer"
                                         : undefined
                                 }
-                                aria-label={`${contact.action} - ${contact.title}`}
+                                aria-label={`${contact.action} ${contact.title}`}
                             >
                                 <div className="contact-card-top">
                                     <div className="contact-icon">
@@ -313,7 +305,6 @@ function Contact() {
                 </span>
 
                 <h2> </h2>
-
 
                 <a href="#top" className="contact-back-top">
                     بازگشت به بالای صفحه ↑
