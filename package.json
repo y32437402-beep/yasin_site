@@ -46,5 +46,6 @@
     "gh-pages": "^6.3.0",
     "wrangler": "^4.158.0",
     "yaml": "^2.9.1"
-  }
+  },
+  "packageManager": "npm@10.9.2"
 }
