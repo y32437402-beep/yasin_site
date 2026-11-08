@@ -3,7 +3,7 @@ import SEO from "./components/SEO";
 import NotFound from "./pages/NotFound";
 import { Routes, Route } from "react-router-dom";
 
-import Navbar from "../src/components/Navbar";
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
